@@ -1,0 +1,82 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Programmes API",
+    "description": "A simple API to create/update programmes"
+  },
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/",
+  "paths": {
+    "/programmes": {
+      "post": {
+        "summary": "Creates a programme",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body"
+          }
+        ]
+      },
+      "get": {
+        "summary": "Gets a list of programmes",
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/programmes/{programmeId}": {
+      "get": {
+        "summary": "Gets a single programme",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "programmeId",
+            "in": "path"
+          }
+        ]
+      },
+      "patch": {
+        "summary": "Updates a programme",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body"
+          },
+          {
+            "name": "programmeId",
+            "in": "path"
+          }
+        ]
+      },
+      "delete": {
+        "summary": "Deletes a single programme",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "programmeId",
+            "in": "path"
+          }
+        ]
+      }
+    }
+  }
+}
