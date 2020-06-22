@@ -6,12 +6,11 @@ const options = {
     poolSize: 10, // Maintain up to 10 socket connections
     bufferMaxEntries: 0,
     useNewUrlParser: true,
-    useUnifiedTopology: true
-
+    useUnifiedTopology: true,
 };
 const connectWithRetry = () => {
     console.log('MongoDB connection with retry')
-    mongoose.connect("mongodb://127.0.0.1:27017", options).then(()=>{
+    mongoose.connect("mongodb://127.0.0.1:27017/peep", options).then(()=>{
         console.log('MongoDB is connected')
     }).catch(err=>{
         console.log('MongoDB connection unsuccessful, retry after 5 seconds. ', ++count);

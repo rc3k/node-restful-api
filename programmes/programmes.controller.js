@@ -1,7 +1,6 @@
 const ProgrammesModel = require('./programmes.model');
 
 exports.insert = (req, res) => {
-    console.warn(req.body)
     ProgrammesModel.createProgramme(req.body)
         .then((result) => {
             res.status(201).send({id: result._id});
