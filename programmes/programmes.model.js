@@ -1,64 +1,46 @@
-const mongoose = require('../mongoose.service').mongoose;
-const Schema = mongoose.Schema;
+const { mongoose } = require('../mongoose.service');
+
+const { Schema } = mongoose;
 
 const programmeSchema = new Schema({
-   name: String,
-   code: String
+  name: {
+    type: String,
+    required: [true, 'Name is required'],
+  },
+  code: String,
 });
 
-programmeSchema.virtual('id').get(function () {
-    return this._id.toHexString();
-});
+function convertId() {
+  return this._id.toHexString();
+}
+
+programmeSchema.virtual('id').get(convertId);
 
 programmeSchema.set('toJSON', {
-    virtuals: true
+  virtuals: true,
 });
 
-Programme = mongoose.model('Programme', programmeSchema);
+const Programme = mongoose.model('Programme', programmeSchema);
 
 exports.Programme = Programme;
 
-exports.createProgramme = async (programmeData) => {
-    const programme = new Programme(programmeData);
-    return await programme.save();
+exports.create = async (programmeData) => {
+  const programme = new Programme(programmeData);
+  return programme.save();
 };
 
-exports.patchProgramme = async (id, programmeData) => {
-    try {
-        programme = await Programme.findById(id);
-        for (let i in programmeData) {
-            programme[i] = programmeData[i];
-        }
-        await programme.save();
-    } catch (err) {
-        return err;
-    }
+exports.update = async (id, programmeData) => {
+  const programme = await Programme.findById(id);
+  Object.entries(programmeData).forEach(([key, value]) => {
+    programme[key] = value;
+  });
+  return programme.save();
 };
 
-exports.list = async (perPage, page) => {
-    try {
-        return await Programme.find()
-        .limit(perPage)
-        .skip(perPage * page)
-        .exec()
-    } catch (err) {
-        return err;
-    }
-};
+exports.list = async (perPage, page) => Programme.find()
+  .limit(perPage)
+  .skip(perPage * page);
 
-exports.getProgramme = async (id) => {
-    try {
-        const programme = await Programme.findById(id)
-        return programme;
-    } catch (err) {
-        return err;
-    }
-}
+exports.get = async (id) => Programme.findById(id);
 
-exports.deleteProgramme = async (id) => {
-    try {
-        return await Programme.deleteOne({_id: id});
-    } catch (err) {
-        return err;
-    }
-}
+exports.delete = async (id) => Programme.deleteOne({ _id: id });
