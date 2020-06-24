@@ -17,7 +17,8 @@
     "swagger-ui-express": "^4.1.4",
     "sync-request": "^6.1.0",
     "dotenv": "^8.2.0",
-    "serverless-http": "^2.5.0"
+    "serverless-http": "^2.5.0",
+    "serverless-export-swagger": "^2.0.0"
   },
   "devDependencies": {
     "mocha": "^8.0.1",

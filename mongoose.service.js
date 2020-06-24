@@ -11,7 +11,7 @@ const options = {
 };
 const connectWithRetry = () => {
   console.log('MongoDB connection with retry'); // eslint-disable-line no-console
-  mongoose.connect('mongodb://127.0.0.1:27017/peep', options).then(() => {
+  mongoose.connect(process.env.DB, options).then(() => {
     console.log('MongoDB is connected'); // eslint-disable-line no-console
   }).catch(() => {
     count += 1;

@@ -206,7 +206,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/node-restful-api/dev/1593027249619-2020-06-24T19:34:09.619Z/node-restful-api.zip"
+                "S3Key": "serverless/node-restful-api/dev/1593072920281-2020-06-25T08:15:20.281Z/node-restful-api.zip"
               },
               "FunctionName": "node-restful-api-dev-app",
               "Handler": "s_app.handler",
@@ -224,14 +224,14 @@
               "AppLogGroup"
             ]
           },
-          "AppLambdaVersionpKwGauCKslipP95O2KymitHgqk1OZTaIf19DbzGPts": {
+          "AppLambdaVersiond8hsDPHlpLMXUxuGCu5WvbnokmJFNqnAGhY69YHBp8": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "Oe3oRoQmjq5dbVY/cO3igRIYW4Ac+NIEazm5s9ABM/M="
+              "CodeSha256": "X66papQ9bkI+n8RqHDejchwp41B3nOeV/s3sCh01KC8="
             }
           },
           "ApiGatewayRestApi": {
@@ -443,7 +443,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1593027241477": {
+          "ApiGatewayDeployment1593072911896": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -604,7 +604,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/node-restful-api/dev/1593027249619-2020-06-24T19:34:09.619Z/custom-resources.zip"
+                "S3Key": "serverless/node-restful-api/dev/1593072920281-2020-06-25T08:15:20.281Z/custom-resources.zip"
               },
               "FunctionName": "node-restful-api-dev-custom-resource-apigw-cw-role",
               "Handler": "apiGatewayCloudWatchRole/handler.handler",
@@ -660,7 +660,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionpKwGauCKslipP95O2KymitHgqk1OZTaIf19DbzGPts"
+              "Ref": "AppLambdaVersiond8hsDPHlpLMXUxuGCu5WvbnokmJFNqnAGhY69YHBp8"
             }
           },
           "ServiceEndpoint": {
@@ -829,7 +829,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionpKwGauCKslipP95O2KymitHgqk1OZTaIf19DbzGPts"
+        "versionLogicalId": "AppLambdaVersiond8hsDPHlpLMXUxuGCu5WvbnokmJFNqnAGhY69YHBp8"
       }
     },
     "serviceFilename": "serverless.yml",
@@ -843,7 +843,7 @@
     "artifact": "/home/rob/Projects/playground/node-restful-api/.serverless/node-restful-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/node-restful-api/dev/1593027249619-2020-06-24T19:34:09.619Z",
+    "artifactDirectoryName": "serverless/node-restful-api/dev/1593072920281-2020-06-25T08:15:20.281Z",
     "artifact": "node-restful-api.zip"
   }
 }
