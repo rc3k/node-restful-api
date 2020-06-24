@@ -1,3 +1,4 @@
+const serverless = require('serverless-http');
 const express = require('express');
 const bodyParser = require('body-parser');
 const swaggerUi = require('swagger-ui-express');
@@ -31,3 +32,4 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.listen(config.port, () => {
   console.log('app listening at port %s', config.port); // eslint-disable-line no-console
 });
+module.exports.handler = serverless(app);

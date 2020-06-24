@@ -15,7 +15,9 @@
     "mongoose": "^5.9.19",
     "node-uuid": "^1.4.8",
     "swagger-ui-express": "^4.1.4",
-    "sync-request": "^6.1.0"
+    "sync-request": "^6.1.0",
+    "dotenv": "^8.2.0",
+    "serverless-http": "^2.5.0"
   },
   "devDependencies": {
     "mocha": "^8.0.1",
@@ -24,6 +26,7 @@
     "eslint-plugin-import": "^2.21.2",
     "eslint-config-airbnb-base": "^14.2.0",
     "sinon": "^9.0.2",
-    "mock-req-res": "1.2.0"
+    "mock-req-res": "1.2.0",
+    "serverless-offline": "^6.4.0"
   }
 }
