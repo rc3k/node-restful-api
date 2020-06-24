@@ -1,9 +1,9 @@
 const { Error } = require('mongoose');
 const ProgrammeModel = require('./programmes.model');
 
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
   try {
-    ProgrammeModel.create(req.body)
+    await ProgrammeModel.create(req.body)
       .then((result) => {
         res.status(201).send({ id: result.id });
       });
@@ -16,9 +16,9 @@ exports.create = (req, res) => {
   }
 };
 
-exports.update = (req, res) => {
+exports.update = async (req, res) => {
   try {
-    ProgrammeModel.update(req.params.id, req.body)
+    await ProgrammeModel.update(req.params.id, req.body)
       .then((result) => {
         res.status(204).send({ id: result.id });
       });
@@ -31,29 +31,41 @@ exports.update = (req, res) => {
   }
 };
 
-exports.list = (req, res) => {
+exports.list = async (req, res) => {
   const limit = req.query.limit && req.query.limit <= 100 ? parseInt(req.query.limit, 10) : 10;
   const page = req.query.page || 0;
-  ProgrammeModel.list(limit, page)
-    .then((result) => {
-      res.status(200).send(result);
-    });
-};
-
-exports.get = (req, res) => {
-  ProgrammeModel.get(req.params.id)
-    .then((result) => {
-      if (result) {
+  try {
+    await ProgrammeModel.list(limit, page)
+      .then((result) => {
         res.status(200).send(result);
-      } else {
-        res.status(404).send(null);
-      }
-    });
+      });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 };
 
-exports.delete = (req, res) => {
-  ProgrammeModel.delete(req.params.id)
-    .then(() => {
-      res.status(200).send(null);
-    });
+exports.get = async (req, res) => {
+  try {
+    await ProgrammeModel.get(req.params.id)
+      .then((result) => {
+        if (result) {
+          res.status(200).send(result);
+        } else {
+          res.status(404).send(null);
+        }
+      });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+exports.delete = async (req, res) => {
+  try {
+    await ProgrammeModel.delete(req.params.id)
+      .then(() => {
+        res.status(200).send(null);
+      });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
 };

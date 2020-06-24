@@ -21,7 +21,7 @@
         ],
         "parameters": [
           {
-            "name": "body",
+            "name": "id",
             "in": "body"
           }
         ]
@@ -33,7 +33,7 @@
         ]
       }
     },
-    "/programmes/{programmeId}": {
+    "/programmes/{id}": {
       "get": {
         "summary": "Gets a single programme",
         "produces": [
@@ -41,7 +41,7 @@
         ],
         "parameters": [
           {
-            "name": "programmeId",
+            "name": "id",
             "in": "path"
           }
         ]
@@ -60,7 +60,7 @@
             "in": "body"
           },
           {
-            "name": "programmeId",
+            "name": "id",
             "in": "path"
           }
         ]
@@ -72,7 +72,7 @@
         ],
         "parameters": [
           {
-            "name": "programmeId",
+            "name": "id",
             "in": "path"
           }
         ]

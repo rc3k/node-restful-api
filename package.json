@@ -2,7 +2,7 @@
   "name": "node-rest-api",
   "version": "0.1.0",
   "scripts": {
-    "start": "node index.js",
+    "start": "node index.js watch",
     "test": "mocha -w",
     "lint": "eslint . --fix"
   },

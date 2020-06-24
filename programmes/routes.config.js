@@ -7,13 +7,13 @@ exports.routesConfig = (app) => {
   app.post('/programmes', [
     ProgrammesController.create,
   ]);
-  app.patch('/programmes/:programmeId', [
+  app.patch('/programmes/:id', [
     ProgrammesController.update,
   ]);
-  app.get('/programmes/:programmeId', [
+  app.get('/programmes/:id', [
     ProgrammesController.get,
   ]);
-  app.delete('/programmes/:programmeId', [
+  app.delete('/programmes/:id', [
     ProgrammesController.delete,
   ]);
 };

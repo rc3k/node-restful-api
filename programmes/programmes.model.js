@@ -24,7 +24,7 @@ const Programme = mongoose.model('Programme', programmeSchema);
 
 exports.Programme = Programme;
 
-exports.create = async (programmeData) => {
+exports.create = (programmeData) => {
   const programme = new Programme(programmeData);
   return programme.save();
 };
@@ -37,10 +37,10 @@ exports.update = async (id, programmeData) => {
   return programme.save();
 };
 
-exports.list = async (perPage, page) => Programme.find()
+exports.list = (perPage, page) => Programme.find()
   .limit(perPage)
   .skip(perPage * page);
 
-exports.get = async (id) => Programme.findById(id);
+exports.get = (id) => Programme.findById(id);
 
-exports.delete = async (id) => Programme.deleteOne({ _id: id });
+exports.delete = (id) => Programme.deleteOne({ _id: id });
