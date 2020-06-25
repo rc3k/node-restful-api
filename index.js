@@ -32,5 +32,5 @@ app.listen(process.env.PORT, () => {
   console.log('app listening at port %s', process.env.PORT); // eslint-disable-line no-console
 });
 module.exports.handler = serverless(app, {
-  callbackWaitsForEmptyEventLoop: false
+  callbackWaitsForEmptyEventLoop: false,
 });
