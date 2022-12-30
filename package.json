@@ -21,7 +21,7 @@
     "serverless-export-swagger": "^2.0.0"
   },
   "devDependencies": {
-    "mocha": "^8.0.1",
+    "mocha": "^8.4.0",
     "mongodb-memory-server": "^6.6.1",
     "eslint": "^7.3.1",
     "eslint-plugin-import": "^2.21.2",
